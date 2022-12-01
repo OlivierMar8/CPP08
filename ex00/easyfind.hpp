@@ -6,5 +6,7 @@ template<typename T>
 bool	easyfind( T & cont, int n) {
 
 
-	std::T::const_iterator it = std::begin(cont);
+//	std::T::consit_iterator it = std::begin(cont);
+
+	return true;
 }
