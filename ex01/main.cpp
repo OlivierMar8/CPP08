@@ -9,11 +9,11 @@ int	main( void ) {
 
 	Span	b(9);
 
-	b.addNumber(10);
+	b.addNumber(110);
+	b.addNumber(211);
+	b.addNumber(199);
+/*	b.addNumber(13);
 	b.addNumber(11);
-	b.addNumber(12);
-	b.addNumber(13);
-	b.addNumber(14);
 	b.addNumber(18);
 	Span v(b);
 	b.addNumber(39);
@@ -32,8 +32,11 @@ int	main( void ) {
 	catch (std::exception & e) {
 		std::cout << e.what() << std::endl;
 	}
-	std::cout << b.longestSpan() << std::endl;
-	std::cout << v.longestSpan() << std::endl;
+*/	std::cout << b.longestSpan() << std::endl;
+//	std::cout << v.longestSpan() << std::endl;
+	std::cout << b.shortestSpan() << std::endl;
+//	std::cout << v.shortestSpan() << std::endl;
+
 	std::cout << "Fin du test" << std::endl;
 	return 0;
 

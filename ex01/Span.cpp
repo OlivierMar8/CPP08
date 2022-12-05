@@ -58,6 +58,17 @@ void	Span::addNumber( int const a) {
 	return;
 }
 
+int	Span::shortestSpan( void )  {
+	
+	std::vector<int> s_sp(_tab);
+	std::vector<int> result(_tab.size());	
+	std::sort(s_sp.begin(), s_sp.end());
+	std::adjacent_difference(s_sp.begin() + 1, s_sp.end(), result.begin());
+	int  min_val = *std::min_element(_tab.begin(), _tab.end());
+	return min_val;
+
+}
+
 int	Span::longestSpan( void ) const {
 
 	int  min_val = *std::min_element(_tab.begin(), _tab.end());
