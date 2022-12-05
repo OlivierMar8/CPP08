@@ -11,7 +11,7 @@ int	main( void ) {
 
 	b.addNumber(10);
 	Span v(b);
-	/*
+	
 	try {
 		b.addNumber(20);
 	}
@@ -25,7 +25,8 @@ int	main( void ) {
 	catch (std::exception & e) {
 		std::cout << e.what() << std::endl;
 	}
-*/	return 0;
+	std::cout << "Fin du test" << std::endl;
+	return 0;
 
 }
 

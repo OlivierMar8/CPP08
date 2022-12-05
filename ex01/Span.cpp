@@ -51,16 +51,21 @@ std::vector<int> Span::getTab( void ) const {
 
 void	Span::addNumber( int const a) {
 
-	if ( _nb < _max_nb) {
+	if ( _tab.size()  < _max_nb) 
 		_tab.push_back(a);
-		++_nb;
-	}
 	else
-		throw std::exception();
+		throw AddingException();
 	return;
 }
 
+const char *	Span::AddingException::what () const throw() {
+	return ("Error adding int : stack has no place left !");
+	
+}
 
+const char *	Span::DistException::what () const throw() {
+	return ("Error calculating distance : only 1 or no number in the stack !");
+}
 
 std::ostream &	operator<<( std::ostream & o, Span const & src) {
 

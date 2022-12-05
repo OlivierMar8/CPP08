@@ -21,11 +21,22 @@ class Span {
 		std::vector<int> getTab( void ) const;
 		void		addNumber( int const a); 
 
+		class AddingException : public std::exception {
+			public:
+				virtual const char * what() const throw();
+		};
+
+		class DistException : public std::exception {
+			public:
+				virtual const char * what() const throw(); 
+		};
+
 	private:
 
-		int					_max_nb;
-		int					_nb;
+		unsigned int		_max_nb;
+		int					_nb; //utile ??
 		std::vector<int>	_tab;
+
 		Span( void );					//Canonique
 
 };
