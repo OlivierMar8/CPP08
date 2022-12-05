@@ -18,7 +18,7 @@ class Span {
 
 		int			getMaxNb( void ) const;
 		int			getNb( void ) const;
-//		std::vector<int> & getTab( void ) const;
+		std::vector<int> getTab( void ) const;
 		void		addNumber( int const a); 
 
 	private:
@@ -30,6 +30,6 @@ class Span {
 
 };
 
-//std::ostream &		operator<<( std::ostream & o, Span const & i );
+std::ostream &		operator<<( std::ostream & o, Span const & i );
 
 #endif

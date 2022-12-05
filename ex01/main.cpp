@@ -10,7 +10,8 @@ int	main( void ) {
 	Span	b(2);
 
 	b.addNumber(10);
-
+	Span v(b);
+	/*
 	try {
 		b.addNumber(20);
 	}
@@ -24,6 +25,7 @@ int	main( void ) {
 	catch (std::exception & e) {
 		std::cout << e.what() << std::endl;
 	}
-	return 0;
+*/	return 0;
+
 }
 

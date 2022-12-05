@@ -3,7 +3,7 @@
 #include <iostream>
 #include "Span.hpp"
 
-Span::Span( void ) {
+Span::Span( void ) : _max_nb( 0 ), _nb ( 0 ) {
 
 	return;
 }
@@ -13,7 +13,7 @@ Span::Span( unsigned int const n ) : _max_nb( n ), _nb ( 0 ) {
 	return;
 }
 
-Span::Span( Span const & src ) : _max_nb( src.getMaxNb()) {
+Span::Span( Span const & src ) {
 	*this = src;
 	return;
 }
@@ -23,21 +23,32 @@ Span::~Span( void ) {
 		return;
 }
 
-int		Span::getMaxNb( void ) const {
+Span &	Span::operator=( Span const & rhs) {
+
+		if ( this != &rhs )
+		{
+			this->_nb = rhs.getNb();
+		 	this->_max_nb = rhs.getMaxNb();	
+			this->_tab = rhs.getTab();
+		}
+		return *this;
+}
+
+int	Span::getMaxNb( void ) const {
 
 		return this->_max_nb;
 }
 
-int		Span::getNb( void ) const {
+int	Span::getNb( void ) const {
 
 		return this->_nb;
 }
-/*
-std::vector<int> & Span::getTab( void ) const {
+
+std::vector<int> Span::getTab( void ) const {
 
 	return this->_tab;
 }
-*/
+
 void	Span::addNumber( int const a) {
 
 	if ( _nb < _max_nb) {
@@ -50,21 +61,14 @@ void	Span::addNumber( int const a) {
 }
 
 
-Span &	Span::operator=( Span const & rhs) {
-//pas OK
 
-		if ( this != &rhs )
-		{
-			this->_nb = rhs.getNb();
-		//	this->_tab = rhs.getTab();
-		}
-		return *this;
-}
-/*
-std::ostream &	operator<<( std::ostream & o, Span const & i) {
+std::ostream &	operator<<( std::ostream & o, Span const & src) {
 
-	o << "The value of _foo is : " << i.getFoo();
+	for (size_t i = 0; i < src.getTab().size(); i++) {
+		o << src.getTab()[i];
+		if ( i < (src.getTab().size() - 1))
+				o << " / ";
+		}	
 
 	return o;
 }
-*/
