@@ -58,6 +58,14 @@ void	Span::addNumber( int const a) {
 	return;
 }
 
+int	Span::longestSpan( void ) const {
+
+	int  min_val = *std::min_element(_tab.begin(), _tab.end());
+	int  max_val = *std::max_element(_tab.begin(), _tab.end());
+
+	return ( max_val - min_val);	
+}
+
 const char *	Span::AddingException::what () const throw() {
 	return ("Error adding int : stack has no place left !");
 	

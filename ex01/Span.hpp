@@ -5,6 +5,7 @@
 
 #include <ostream>
 #include <vector>
+#include <algorithm>
 
 class Span {
 
@@ -20,6 +21,7 @@ class Span {
 		int			getNb( void ) const;
 		std::vector<int> getTab( void ) const;
 		void		addNumber( int const a); 
+		int			longestSpan( void ) const;
 
 		class AddingException : public std::exception {
 			public:
