@@ -4,7 +4,6 @@
 #include <string>
 #include <vector>
 #include <list>
-#include "Fixed.hpp"
 #include "easyfind.hpp"
 
 int	main( void ) {

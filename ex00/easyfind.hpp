@@ -9,8 +9,6 @@
 template<typename T>
 bool	easyfind( T & cont, int n) {
 
-(void)cont;
-(void)n;
 	typename T::iterator it;
 	it = std::find( cont.begin(), cont.end(), n);
 	if (it != cont.end())
