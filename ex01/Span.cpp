@@ -54,16 +54,28 @@ void	Span::addNumber( int const a) {
 	return;
 }
 
+void	Span::addManyNumbers( std::vector<int> src) {
+
+	if ((getMaxNb() - _tab.size()) < src.size())
+			throw AddingException();
+	else
+		std::copy(src.begin(), src.end(), std::back_inserter(_tab));
+	return;
+}
+
+
 int	Span::shortestSpan( void ) const {
 	
+	if (_tab.size() < 2)
+		throw DistException();
 	std::vector<int> s_sp(_tab);
-	std::cout << "s_sp ";	printVec(s_sp);
+	std::cout << "s_sp ";	printVec(s_sp);//
 	std::vector<int> result(_tab.size());	
-	std::cout << "result apres creation " ;	printVec(result);
+	std::cout << "result apres creation " ;	printVec(result);//
 	std::sort(s_sp.begin(), s_sp.end());
-	std::cout << "s_sp apres sort ";	printVec(s_sp);
+	std::cout << "s_sp apres sort ";	printVec(s_sp);//
 	std::adjacent_difference(s_sp.begin(), s_sp.end(), result.begin());
-	std::cout << "result apres adj diff ";printVec(result);
+	std::cout << "result apres adj diff ";printVec(result);//
 	int  min_val = *std::min_element(result.begin() + 1, result.end());
 	return min_val;
 
@@ -71,6 +83,8 @@ int	Span::shortestSpan( void ) const {
 
 int	Span::longestSpan( void ) const {
 
+	if (_tab.size() < 2)
+		throw DistException();
 	int  min_val = *std::min_element(_tab.begin(), _tab.end());
 	int  max_val = *std::max_element(_tab.begin(), _tab.end());
 

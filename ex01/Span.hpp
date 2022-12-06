@@ -21,6 +21,7 @@ class Span {
 		int					getMaxNb( void ) const;
 		std::vector<int>	getTab( void ) const;
 		void				addNumber( int const a); 
+		void				addManyNumbers(std::vector<int> src);
 		int					shortestSpan( void ) const;
 		int					longestSpan( void ) const;
    		void           		printElements(void) const;
