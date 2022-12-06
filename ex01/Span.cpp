@@ -3,12 +3,12 @@
 #include <iostream>
 #include "Span.hpp"
 
-Span::Span( void ) : _max_nb( 0 ), _nb ( 0 ) {
+Span::Span( void ) : _max_nb( 0 ) {
 
 	return;
 }
 
-Span::Span( unsigned int const n ) : _max_nb( n ), _nb ( 0 ) {
+Span::Span( unsigned int const n ) : _max_nb( n ) {
 
 	return;
 }
@@ -27,9 +27,10 @@ Span &	Span::operator=( Span const & rhs) {
 
 		if ( this != &rhs )
 		{
-			this->_nb = rhs.getNb();
+			std::vector<int> src = rhs.getTab();
 		 	this->_max_nb = rhs.getMaxNb();	
-			this->_tab = rhs.getTab();
+			for (unsigned int i = 0; i < src.size(); i++)
+					_tab.push_back(src[i]);
 		}
 		return *this;
 }
@@ -37,11 +38,6 @@ Span &	Span::operator=( Span const & rhs) {
 int	Span::getMaxNb( void ) const {
 
 		return this->_max_nb;
-}
-
-int	Span::getNb( void ) const {
-
-		return this->_nb;
 }
 
 std::vector<int> Span::getTab( void ) const {
@@ -58,13 +54,17 @@ void	Span::addNumber( int const a) {
 	return;
 }
 
-int	Span::shortestSpan( void )  {
+int	Span::shortestSpan( void ) const {
 	
 	std::vector<int> s_sp(_tab);
+	std::cout << "s_sp ";	printVec(s_sp);
 	std::vector<int> result(_tab.size());	
+	std::cout << "result apres creation " ;	printVec(result);
 	std::sort(s_sp.begin(), s_sp.end());
-	std::adjacent_difference(s_sp.begin() + 1, s_sp.end(), result.begin());
-	int  min_val = *std::min_element(_tab.begin(), _tab.end());
+	std::cout << "s_sp apres sort ";	printVec(s_sp);
+	std::adjacent_difference(s_sp.begin(), s_sp.end(), result.begin());
+	std::cout << "result apres adj diff ";printVec(result);
+	int  min_val = *std::min_element(result.begin() + 1, result.end());
 	return min_val;
 
 }
@@ -95,4 +95,20 @@ std::ostream &	operator<<( std::ostream & o, Span const & src) {
 		}	
 
 	return o;
+}
+
+void    Span::printElements(void) const
+{
+    for_each(_tab.begin(), _tab.end(), printElement);
+    std::cout << std::endl;
+}
+
+void    Span::printVec(std::vector<int> & vec) const
+{
+    for_each(vec.begin(), vec.end(), printElement);
+    std::cout << std::endl;
+}
+void    Span::printElement(int const & number)
+{
+    std::cout << number << " ";
 }

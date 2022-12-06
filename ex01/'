@@ -18,13 +18,12 @@ class Span {
 
 		Span &	operator=( Span const & rhs );//Canonique
 
-		int					getMaxNb( void ) const;
-		std::vector<int>	getTab( void ) const;
-		void				addNumber( int const a); 
-		int					shortestSpan( void ) const;
-		int					longestSpan( void ) const;
-   		void           		printElements(void) const;
-		void    			printVec(std::vector<int> & vec) const;
+		int			getMaxNb( void ) const;
+		int			getNb( void ) const;
+		std::vector<int> getTab( void ) const;
+		void		addNumber( int const a); 
+		int			shortestSpan( void ) ;//const;
+		int			longestSpan( void ) const;
 
 		class AddingException : public std::exception {
 			public:
@@ -36,13 +35,16 @@ class Span {
 				virtual const char * what() const throw(); 
 		};
 	
+   		void            printElements(void) const;
+		void    		printVec(std::vector<int> & vec) const;
 	private:
 
 		unsigned int		_max_nb;
+		int					_nb; //utile ??
 		std::vector<int>	_tab;
 
-		Span( void );		//Canonique
-        static void			printElement(int const & number);
+		Span( void );					//Canonique
+        static void printElement(int const & number);
 };
 
 std::ostream &		operator<<( std::ostream & o, Span const & i );

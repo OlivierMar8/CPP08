@@ -4,7 +4,7 @@ SRCS		= main.cpp Span.cpp
 
 OBJS		= $(SRCS:.cpp=.o)
 
-NAME		=  easyfind
+NAME		=  span
 
 CC			= c++-12 #c++-12
 
