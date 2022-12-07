@@ -12,15 +12,25 @@ class MutantStack : public std::stack<T> {
 
 	public:
 
-		MutantStack( void ) { }					//Canonique
-//		MutantStack( int const n );
-		MutantStack( MutantStack const & src ) { *this = src; }	//Canonique	
-		~MutantStack( void ) { return; }				//Canonique	
+		MutantStack( void ) { }	
+		MutantStack( MutantStack const & src ) { *this = src; }
+		~MutantStack( void ) { return; }
 
-		MutantStack &	operator=( MutantStack const & rhs );//Canonique
+		MutantStack &	operator=( MutantStack const & rhs ) {
+			if (*this != rhs)
+				this->c = rhs.c;
+			return *this;
+		}
 
+		typedef typename std::stack<T>::container_type::iterator iterator;
+			
+		iterator begin () {
+			return this->c.begin();
+		}
+
+		iterator end () {
+			return this->c.end();
+		}
 };
-
-//std::ostream &		operator<<( std::ostream & o, MutantStack const & i );
 
 #endif
