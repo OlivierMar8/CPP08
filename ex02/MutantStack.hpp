@@ -13,7 +13,7 @@ class MutantStack : public std::stack<T> {
 	public:
 
 		MutantStack( void ) { }	
-		MutantStack( MutantStack const & src ) { *this = src; }
+		MutantStack( MutantStack const & src ) : std::stack<T>(src) { *this = src; }
 		~MutantStack( void ) { return; }
 
 		MutantStack &	operator=( MutantStack const & rhs ) {

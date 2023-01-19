@@ -1,4 +1,4 @@
-//Span.hpp CPP02   ex00
+//Span.hpp CPP08   ex01
 
 #ifndef SPAN_HPP
 # define SPAN_HPP
@@ -6,7 +6,7 @@
 #include <ostream>
 #include <vector>
 #include <algorithm>
-#include <numeric>
+#include <numeric>  //adjacent_difference
 
 class Span {
 
@@ -24,7 +24,6 @@ class Span {
 		void				addManyNumbers(std::vector<int> src);
 		int					shortestSpan( void ) const;
 		int					longestSpan( void ) const;
-   		void           		printElements(void) const;
 		void    			printVec(std::vector<int> & vec) const;
 
 		class AddingException : public std::exception {

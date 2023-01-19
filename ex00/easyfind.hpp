@@ -1,8 +1,8 @@
 //easyfind.hpp	CPP08	ex00
 #ifndef EASYFIND_HPP
 
-#include <algorithm>
-#include <iterator>
+# include <algorithm>
+# include <iterator>
 
 # define EASYFIND_HPP
 

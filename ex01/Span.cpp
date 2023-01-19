@@ -29,8 +29,7 @@ Span &	Span::operator=( Span const & rhs) {
 		{
 			std::vector<int> src = rhs.getTab();
 		 	this->_max_nb = rhs.getMaxNb();	
-			for (unsigned int i = 0; i < src.size(); i++)
-					_tab.push_back(src[i]);
+			std::copy (src.begin(), src.end(), back_inserter(_tab)); 					
 		}
 		return *this;
 }
@@ -69,16 +68,11 @@ int	Span::shortestSpan( void ) const {
 	if (_tab.size() < 2)
 		throw DistException();
 	std::vector<int> s_sp(_tab);
-	std::cout << "s_sp ";	printVec(s_sp);//
 	std::vector<int> result(_tab.size());	
-	std::cout << "result apres creation " ;	printVec(result);//
 	std::sort(s_sp.begin(), s_sp.end());
-	std::cout << "s_sp apres sort ";	printVec(s_sp);//
 	std::adjacent_difference(s_sp.begin(), s_sp.end(), result.begin());
-	std::cout << "result apres adj diff ";printVec(result);//
 	int  min_val = *std::min_element(result.begin() + 1, result.end());
 	return min_val;
-
 }
 
 int	Span::longestSpan( void ) const {
@@ -106,15 +100,9 @@ std::ostream &	operator<<( std::ostream & o, Span const & src) {
 		o << src.getTab()[i];
 		if ( i < (src.getTab().size() - 1))
 				o << " / ";
-		}	
+	}	
 
 	return o;
-}
-
-void    Span::printElements(void) const
-{
-    for_each(_tab.begin(), _tab.end(), printElement);
-    std::cout << std::endl;
 }
 
 void    Span::printVec(std::vector<int> & vec) const
@@ -122,6 +110,7 @@ void    Span::printVec(std::vector<int> & vec) const
     for_each(vec.begin(), vec.end(), printElement);
     std::cout << std::endl;
 }
+
 void    Span::printElement(int const & number)
 {
     std::cout << number << " ";

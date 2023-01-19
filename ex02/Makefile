@@ -6,12 +6,11 @@ OBJS		= $(SRCS:.cpp=.o)
 
 NAME		= mutantStack 
 
-CC			= c++-12 #c++-12
+CC			= c++ #c++-12
 
 RM			= rm -f
 
-CFLAGS		= -Wall -Werror -Wextra -std=c++98 -g  -fsanitize=address
-
+CFLAGS		= -Wall -Werror -Wextra -std=c++98
 
 all:		${NAME}
 

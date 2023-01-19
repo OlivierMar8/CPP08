@@ -5,8 +5,6 @@
 #include <cstdlib>
 #include "Span.hpp"
 
-
-
 int	main( void ) {
 
 	Span	b(9);
@@ -32,7 +30,7 @@ int	main( void ) {
 	b.addNumber(-10);
 	
 	std::cout << "b " << b << std::endl;
-	std::cout << "v " <<v << std::endl;
+	std::cout << "v " << v << std::endl;
 	try {
 		b.addNumber(20);
 	}
@@ -64,7 +62,7 @@ int	main( void ) {
 	tt.addNumber(6);
 	tt.addNumber(3);
 	tt.addNumber(17);
-	std::cout << " tt " << tt << std::endl;
+	std::cout << "tt " << tt << std::endl;
 
 	std::vector<int> cc;
 	for (int i = 0; i < 10; i++)
@@ -91,9 +89,6 @@ int	main( void ) {
 	catch (std::exception & e) {
 		std::cout << e.what() << std::endl;
 	}
-
-
-
 
 	std::cout << "Fin du test" << std::endl;
 	return 0;
